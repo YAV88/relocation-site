@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ReloGuide — Иммиграция и бизнес-консалтинг за рубежом</title>
     <meta name="description" content="Полный спектр услуг по релокации: ВНЖ, регистрация бизнеса, налоги и недвижимость. Надежное решение для вашего переезда.">
-
+    
     <!-- Иконка -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     
@@ -18,6 +18,14 @@
         body { font-family: 'Inter', sans-serif; }
         .cta-gradient { background: linear-gradient(135deg, #2563eb 0%, #10b981 100%); }
         .glass-nav { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(12px); }
+        @keyframes blob {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+        .animate-blob { animation: blob 7s infinite; }
+        .animation-delay-2000 { animation-delay: 2s; }
     </style>
 </head>
 <body class="bg-white text-slate-900">
@@ -26,6 +34,7 @@
     <nav class="fixed w-full z-50 glass-nav border-b border-slate-100">
         <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
             <div class="flex items-center gap-3">
+                <!-- Логотип из favicon.svg -->
                 <div class="w-12 h-12 flex items-center justify-center">
                     <img src="favicon.svg" alt="ReloGuide Logo" class="w-full h-full object-contain">
                 </div>
@@ -42,9 +51,10 @@
     </nav>
 
     <!-- HERO SECTION -->
-    <section class="relative pt-40 pb-20 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
-            <div>
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 items-center">
+            <!-- Текстовый блок (7 колонок из 12 для баланса) -->
+            <div class="lg:col-span-7 z-10">
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-bold mb-6 uppercase tracking-widest">
                     <span class="relative flex h-2 w-2">
                         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
@@ -52,14 +62,14 @@
                     </span>
                     Доступно 48 направлений для релокации
                 </div>
-                <h1 class="text-5xl lg:text-7xl font-bold leading-[1.1] mb-8">
+                <h1 class="text-5xl lg:text-7xl font-bold leading-[1.1] mb-8 text-slate-900">
                     Ваш новый старт <br> <span class="text-transparent bg-clip-text cta-gradient">без границ и стресса</span>
                 </h1>
-                <p class="text-xl text-slate-500 mb-10 leading-relaxed max-w-lg">
+                <p class="text-xl text-slate-500 mb-10 leading-relaxed max-w-xl">
                     Профессиональная помощь в получении ВНЖ, открытии бизнеса и покупке недвижимости. Мы берем на себя бюрократию — вы выбираете будущее.
                 </p>
                 <div class="flex flex-wrap gap-4">
-                    <a href="#lead-form" class="px-8 py-4 cta-gradient text-white rounded-2xl font-bold text-lg hover:scale-105 transition shadow-xl shadow-blue-200">Начать переезд</a>
+                    <a href="#lead-form" class="px-10 py-5 cta-gradient text-white rounded-2xl font-bold text-lg hover:scale-105 transition shadow-xl shadow-blue-200">Начать переезд</a>
                     <div class="flex items-center gap-3 px-6 py-4 bg-slate-50 rounded-2xl border border-slate-100">
                         <div class="flex -space-x-2">
                             <img class="w-8 h-8 rounded-full border-2 border-white" src="https://i.pravatar.cc/100?img=1" alt="Client">
@@ -70,10 +80,32 @@
                     </div>
                 </div>
             </div>
-            <div class="relative">
-                <div class="absolute -top-20 -right-20 w-96 h-96 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
-                <div class="absolute -bottom-20 -left-20 w-96 h-96 bg-green-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
-                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200" alt="Office" class="relative rounded-3xl shadow-2xl border border-slate-100">
+
+            <!-- Блок с изображением (5 колонок из 12, увеличенный масштаб) -->
+            <div class="lg:col-span-5 relative">
+                <!-- Декоративные пятна фона -->
+                <div class="absolute -top-20 -right-10 w-80 h-80 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
+                <div class="absolute -bottom-20 -left-10 w-80 h-80 bg-emerald-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+                
+                <div class="relative group">
+                    <!-- Изображение: масштабный городской пейзаж, символизирующий возможности -->
+                    <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&q=80&w=1000" 
+                         alt="Перспективы релокации" 
+                         class="rounded-[2.5rem] shadow-2xl border border-white/50 transform group-hover:rotate-1 transition-transform duration-500 object-cover aspect-[4/5] lg:aspect-auto w-full h-full min-h-[500px]">
+                    
+                    <!-- Плашка с быстрой статистикой поверх фото -->
+                    <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-3xl shadow-xl border border-slate-50 hidden md:block">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center">
+                                <i data-lucide="check-circle-2" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400 font-bold uppercase">Гарантия</p>
+                                <p class="text-lg font-bold">98% одобрений</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -87,17 +119,15 @@
             </div>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Service 1: Residence Permit -->
                 <div class="bg-white p-8 rounded-3xl border border-slate-100 hover:shadow-2xl transition group">
                     <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-600 mb-6 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
-                        <i data-lucide="pass-card"></i>
+                        <i data-lucide="contact-2"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3 uppercase tracking-tight">ВНЖ и ПМЖ</h3>
                     <p class="text-slate-500 mb-6 text-sm leading-relaxed">Цифровые кочевники, визы инвесторов и воссоединение семьи. Гарантированный результат.</p>
                     <a href="/residence-permit.html" class="flex items-center gap-2 text-blue-600 font-bold hover:gap-4 transition-all uppercase text-xs tracking-widest">Подробнее <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
                 </div>
 
-                <!-- Service 2: Legal -->
                 <div class="bg-white p-8 rounded-3xl border border-slate-100 hover:shadow-2xl transition group">
                     <div class="w-14 h-14 bg-emerald-100 rounded-2xl flex items-center justify-center text-emerald-600 mb-6 group-hover:bg-emerald-600 group-hover:text-white transition-all">
                         <i data-lucide="shield-check"></i>
@@ -107,7 +137,6 @@
                     <a href="/legal-services.html" class="flex items-center gap-2 text-emerald-600 font-bold hover:gap-4 transition-all uppercase text-xs tracking-widest">Подробнее <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
                 </div>
 
-                <!-- Service 3: Business Registration -->
                 <div class="bg-white p-8 rounded-3xl border border-slate-100 hover:shadow-2xl transition group">
                     <div class="w-14 h-14 bg-purple-100 rounded-2xl flex items-center justify-center text-purple-600 mb-6 group-hover:bg-purple-600 group-hover:text-white transition-all">
                         <i data-lucide="briefcase"></i>
@@ -117,7 +146,6 @@
                     <a href="/business-reg.html" class="flex items-center gap-2 text-purple-600 font-bold hover:gap-4 transition-all uppercase text-xs tracking-widest">Подробнее <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
                 </div>
 
-                <!-- Service 4: Accounting -->
                 <div class="bg-white p-8 rounded-3xl border border-slate-100 hover:shadow-2xl transition group">
                     <div class="w-14 h-14 bg-orange-100 rounded-2xl flex items-center justify-center text-orange-600 mb-6 group-hover:bg-orange-600 group-hover:text-white transition-all">
                         <i data-lucide="calculator"></i>
@@ -127,7 +155,6 @@
                     <a href="/accounting.html" class="flex items-center gap-2 text-orange-600 font-bold hover:gap-4 transition-all uppercase text-xs tracking-widest">Подробнее <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
                 </div>
 
-                <!-- Service 5: Real Estate -->
                 <div class="bg-white p-8 rounded-3xl border border-slate-100 hover:shadow-2xl transition group">
                     <div class="w-14 h-14 bg-indigo-100 rounded-2xl flex items-center justify-center text-indigo-600 mb-6 group-hover:bg-indigo-600 group-hover:text-white transition-all">
                         <i data-lucide="home"></i>
@@ -137,7 +164,6 @@
                     <a href="/real-estate.html" class="flex items-center gap-2 text-indigo-600 font-bold hover:gap-4 transition-all uppercase text-xs tracking-widest">Подробнее <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
                 </div>
 
-                <!-- Service 6: Renovation -->
                 <div class="bg-white p-8 rounded-3xl border border-slate-100 hover:shadow-2xl transition group">
                     <div class="w-14 h-14 bg-pink-100 rounded-2xl flex items-center justify-center text-pink-600 mb-6 group-hover:bg-pink-600 group-hover:text-white transition-all">
                         <i data-lucide="wrench"></i>
@@ -172,7 +198,6 @@
                     </div>
                     
                     <div class="bg-white p-8 rounded-3xl shadow-xl">
-                        <!-- Используем Formspree для сбора заявок без бэкенда -->
                         <form action="https://formspree.io/f/mlgovvbd" method="POST" class="space-y-4">
                             <div>
                                 <label class="block text-xs font-bold uppercase text-slate-400 mb-2">Ваше имя</label>
