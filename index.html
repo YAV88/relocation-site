@@ -3,251 +3,198 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aethelio — Экспертная релокация и международный консалтинг</title>
-    <meta name="description" content="Aethelio: премиальное сопровождение в получении ВНЖ, открытии бизнеса и управлении активами. Гарантия результата и полная анонимность.">
+    <title>Aethelio — Глобальный хаб по релокации и управлению активами</title>
+    <meta name="description" content="Aethelio: независимая платформа подбора премиальных решений по ВНЖ и защите капитала. Мы соединяем капитал с лучшими исполнителями.">
     
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    
-    <!-- Библиотеки: Tailwind CSS, Lucide Icons, Google Fonts -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
 
     <style>
         body { font-family: 'Inter', sans-serif; }
-        
-        /* Фирменные стили Aethelio */
-        .aethelio-gradient-bg { background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); }
+        .aethelio-gradient { background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); }
         .aethelio-text-gradient { background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        
-        /* Эффект матового стекла (Glassmorphism) */
-        .glass-nav { 
-            background: rgba(255, 255, 255, 0.8); 
-            backdrop-filter: blur(16px); 
-            -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(0,0,0,0.05); 
-        }
-        
-        /* Анимация декоративных элементов (блобы) */
-        @keyframes blob {
-            0% { transform: translate(0px, 0px) scale(1); }
-            33% { transform: translate(30px, -50px) scale(1.1); }
-            66% { transform: translate(-20px, 20px) scale(0.9); }
-            100% { transform: translate(0px, 0px) scale(1); }
-        }
-        .animate-blob { animation: blob 7s infinite; }
-        .animation-delay-2000 { animation-delay: 2s; }
-
-        /* Эффект появления при скролле */
+        .glass-nav { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid rgba(0,0,0,0.05); }
         .reveal { opacity: 0; transform: translateY(30px); transition: all 0.9s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
         
-        /* Кастомный скроллбар */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #f1f1f1; }
-        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        @keyframes pulse-soft {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        .animate-pulse-soft { animation: pulse-soft 3s infinite; }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-900 overflow-x-hidden selection:bg-indigo-100 selection:text-indigo-700">
+<body class="bg-slate-50 text-slate-900 overflow-x-hidden selection:bg-indigo-100">
 
     <!-- НАВИГАЦИЯ -->
-    <nav class="fixed w-full z-[100] glass-nav transition-all duration-300" id="navbar">
+    <nav class="fixed w-full z-[100] glass-nav transition-all duration-300 py-4" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <!-- Логотип -->
+            <div class="flex justify-between items-center h-16">
                 <a href="#" class="flex items-center gap-3 group">
-                    <div class="w-10 h-10 aethelio-gradient-bg rounded-xl flex items-center justify-center text-white shadow-lg shadow-indigo-200 group-hover:rotate-6 transition-transform">
-                        <i data-lucide="compass" class="w-6 h-6"></i>
+                    <div class="w-10 h-10 aethelio-gradient rounded-xl flex items-center justify-center text-white shadow-lg shadow-indigo-200">
+                        <i data-lucide="hub" class="w-6 h-6"></i>
                     </div>
-                    <span class="text-2xl font-bold tracking-tighter text-slate-900">Aethelio</span>
+                    <span class="text-2xl font-black tracking-tighter text-slate-900">Aethelio</span>
                 </a>
                 
-                <!-- Десктопное меню -->
                 <div class="hidden md:flex items-center gap-10 text-sm font-semibold text-slate-600">
-                    <a href="#services" class="hover:text-indigo-600 transition-colors">Услуги</a>
-                    <a href="#process" class="hover:text-indigo-600 transition-colors">Методология</a>
-                    <a href="#lead-form" class="aethelio-gradient-bg text-white px-8 py-3 rounded-full hover:shadow-2xl hover:shadow-indigo-300 transition-all transform hover:-translate-y-0.5 active:scale-95">Бесплатный аудит</a>
+                    <a href="#solutions" class="hover:text-indigo-600 transition-colors">Решения</a>
+                    <a href="#methodology" class="hover:text-indigo-600 transition-colors">Методология подбора</a>
+                    <a href="#partners" class="hover:text-indigo-600 transition-colors">Партнерам</a>
+                    <a href="#lead-form" class="aethelio-gradient text-white px-8 py-3 rounded-full hover:shadow-2xl hover:shadow-indigo-300 transition-all transform hover:-translate-y-0.5">Подобрать исполнителя</a>
                 </div>
 
-                <!-- Бургер-кнопка -->
-                <div class="md:hidden flex items-center">
-                    <button id="menu-toggle" class="text-slate-900 focus:outline-none p-2 bg-slate-100 rounded-lg">
-                        <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
-                    </button>
-                </div>
+                <button id="menu-toggle" class="md:hidden p-2 bg-slate-100 rounded-lg">
+                    <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
+                </button>
             </div>
         </div>
-
-        <!-- Мобильное меню -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-xl border-t border-slate-100 absolute w-full shadow-2xl transition-all duration-300">
-            <div class="px-6 py-8 space-y-4">
-                <a href="#services" class="block text-xl font-semibold text-slate-800">Услуги</a>
-                <a href="#process" class="block text-xl font-semibold text-slate-800">Методология</a>
-                <a href="#lead-form" class="block w-full text-center py-4 aethelio-gradient-bg text-white rounded-2xl font-bold shadow-lg">Начать переезд</a>
-            </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 absolute w-full shadow-2xl p-6 space-y-4">
+            <a href="#solutions" class="block text-lg font-bold">Решения</a>
+            <a href="#methodology" class="block text-lg font-bold">Методология</a>
+            <a href="#partners" class="block text-lg font-bold">Для профи</a>
+            <a href="#lead-form" class="block w-full text-center py-4 aethelio-gradient text-white rounded-2xl">Начать подбор</a>
         </div>
     </nav>
 
-    <!-- ГЛАВНЫЙ ЭКРАН (HERO) -->
-    <section class="relative pt-32 pb-20 lg:pt-56 lg:pb-36 overflow-hidden bg-white">
-        <!-- Блобы для фона -->
-        <div class="absolute top-0 right-0 -translate-y-12 translate-x-12 w-[600px] h-[600px] bg-indigo-50 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob"></div>
-        <div class="absolute bottom-0 left-0 translate-y-24 -translate-x-12 w-[600px] h-[600px] bg-purple-50 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob animation-delay-2000"></div>
-
+    <!-- ГЛАВНЫЙ ЭКРАН -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-white overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid lg:grid-cols-12 gap-16 items-center">
-                
-                <div class="lg:col-span-7 space-y-8">
-                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 border border-slate-100 text-slate-500 text-xs font-bold tracking-widest uppercase">
-                        <span class="w-2 h-2 bg-indigo-600 rounded-full animate-pulse"></span>
-                        Aethelio Private Consulting
-                    </div>
-                    
-                    <h1 class="text-5xl sm:text-7xl lg:text-8xl font-black leading-[0.95] text-slate-900 tracking-tighter">
-                        Ваш статус <br>
-                        <span class="aethelio-text-gradient">вне границ.</span>
-                    </h1>
-                    
-                    <p class="text-lg sm:text-xl text-slate-500 leading-relaxed max-w-2xl font-medium">
-                        Безупречное сопровождение релокации: от получения гражданства до открытия банковских счетов и защиты активов в самых стабильных юрисдикциях мира.
-                    </p>
-                    
-                    <div class="flex flex-col sm:flex-row gap-5 pt-4">
-                        <a href="#lead-form" class="flex justify-center items-center px-10 py-5 aethelio-gradient-bg text-white rounded-2xl font-bold text-lg hover:shadow-[0_20px_50px_rgba(79,70,229,0.3)] transition-all transform hover:-translate-y-1 active:scale-95">
-                            Запросить консультацию
-                        </a>
-                        <div class="flex items-center gap-4 px-6 py-4 bg-slate-50 rounded-2xl border border-slate-100">
-                            <div class="flex -space-x-3">
-                                <div class="w-10 h-10 rounded-full border-2 border-white bg-indigo-500 flex items-center justify-center text-[10px] text-white font-bold">A</div>
-                                <div class="w-10 h-10 rounded-full border-2 border-white bg-purple-500 flex items-center justify-center text-[10px] text-white font-bold">E</div>
-                                <div class="w-10 h-10 rounded-full border-2 border-white bg-blue-500 flex items-center justify-center text-[10px] text-white font-bold">T</div>
-                            </div>
-                            <div class="text-sm">
-                                <p class="font-bold text-slate-900 leading-none">1200+ клиентов</p>
-                                <p class="text-slate-400 text-xs mt-1">уже выбрали Aethelio</p>
-                            </div>
-                        </div>
-                    </div>
+            <div class="text-center max-w-4xl mx-auto space-y-8">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-700 text-xs font-bold tracking-widest uppercase">
+                    Независимый агрегатор премиальных услуг
                 </div>
-
-                <div class="lg:col-span-5 relative">
-                    <div class="relative rounded-[3.5rem] overflow-hidden shadow-2xl border-[12px] border-white transform hover:rotate-1 transition-transform duration-700">
-                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1000" 
-                             alt="Архитектура успеха" 
-                             class="w-full h-[500px] lg:h-[650px] object-cover">
-                        
-                        <div class="absolute inset-0 bg-gradient-to-t from-indigo-900/40 to-transparent"></div>
-                        
-                        <div class="absolute bottom-8 left-8 right-8 bg-white/90 backdrop-blur-md p-6 rounded-3xl shadow-xl">
-                            <div class="flex items-center gap-5">
-                                <div class="w-12 h-12 bg-indigo-600 text-white rounded-2xl flex items-center justify-center">
-                                    <i data-lucide="shield" class="w-6 h-6"></i>
-                                </div>
-                                <div>
-                                    <p class="text-xs text-slate-400 font-bold uppercase tracking-wider">Безопасность</p>
-                                    <p class="text-lg font-bold text-slate-900 leading-tight">Юридическая гарантия 100%</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <h1 class="text-5xl md:text-8xl font-black leading-[0.9] text-slate-900 tracking-tighter">
+                    Найдите своего <br> <span class="aethelio-text-gradient">идеального партнера</span>
+                </h1>
+                <p class="text-xl text-slate-500 max-w-2xl mx-auto font-medium leading-relaxed">
+                    Aethelio — это независимый фильтр. Мы анализируем ваш запрос и соединяем вас с топ-3 лицензированными провайдерами услуг по релокации и банкингу, прошедшими наш аудит.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-5 pt-4">
+                    <a href="#lead-form" class="px-12 py-6 aethelio-gradient text-white rounded-3xl font-black text-xl shadow-2xl shadow-indigo-200 hover:-translate-y-1 transition-all">
+                        Пройти скоринг
+                    </a>
+                    <a href="#partners" class="px-12 py-6 bg-slate-900 text-white rounded-3xl font-black text-xl hover:bg-slate-800 transition-all">
+                        Стать партнером
+                    </a>
+                </div>
+                <div class="flex justify-center items-center gap-8 pt-10 grayscale opacity-50">
+                    <span class="text-xs font-bold uppercase tracking-widest">Trust by Tier-1 Banks</span>
+                    <span class="text-xs font-bold uppercase tracking-widest">Global Law Firms</span>
+                    <span class="text-xs font-bold uppercase tracking-widest">Family Offices</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- УСЛУГИ (SERVICES) -->
-    <section id="services" class="py-32 bg-slate-50 relative">
+    <!-- МЕТОДОЛОГИЯ (ПОЧЕМУ МЫ) -->
+    <section id="methodology" class="py-32 bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8 reveal">
-                <div class="max-w-2xl">
-                    <h2 class="text-4xl md:text-5xl font-black mb-6 text-slate-900 tracking-tight">Экосистема решений</h2>
-                    <p class="text-xl text-slate-500 font-medium">Мы не просто оформляем визы. Мы создаем фундамент для вашего глобального будущего.</p>
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
+                <div class="reveal">
+                    <h2 class="text-4xl md:text-6xl font-black mb-8 leading-tight tracking-tighter">Методология <br> Aethelio Selection</h2>
+                    <p class="text-lg text-slate-500 mb-10 leading-relaxed">Мы не занимаемся документами. Мы занимаемся **контролем качества**. Наша подписка для партнеров гарантирует клиентам доступ только к тем, кто прошел 5 стадий проверки:</p>
+                    <ul class="space-y-6">
+                        <li class="flex gap-5">
+                            <div class="w-8 h-8 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold flex-shrink-0">1</div>
+                            <p class="font-bold">Юридический комплаенс и наличие активных лицензий.</p>
+                        </li>
+                        <li class="flex gap-5">
+                            <div class="w-8 h-8 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold flex-shrink-0">2</div>
+                            <p class="font-bold">Аудит успешных кейсов (Success Rate выше 95%).</p>
+                        </li>
+                        <li class="flex gap-5">
+                            <div class="w-8 h-8 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold flex-shrink-0">3</div>
+                            <p class="font-bold">Прямой доступ к ключевым лицам (Decision Makers) в юрисдикции.</p>
+                        </li>
+                    </ul>
                 </div>
-                <div class="hidden md:block">
-                    <div class="w-24 h-1 bg-indigo-600 rounded-full"></div>
-                </div>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-10">
-                <!-- Карта 1 -->
-                <div class="bg-white p-12 rounded-[3rem] border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group reveal">
-                    <div class="w-20 h-20 bg-indigo-50 text-indigo-600 rounded-3xl flex items-center justify-center mb-10 group-hover:aethelio-gradient-bg group-hover:text-white transition-all duration-500">
-                        <i data-lucide="globe" class="w-10 h-10"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4 text-slate-900">Резидентство</h3>
-                    <p class="text-slate-500 mb-8 leading-relaxed">ВНЖ, ПМЖ и вторые паспорта в странах Европы, ОАЭ и США. Программы для инвесторов и талантов.</p>
-                    <div class="flex items-center gap-2 text-indigo-600 font-bold text-sm uppercase tracking-widest">
-                        Анализ стран <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                    </div>
-                </div>
-
-                <!-- Карта 2 -->
-                <div class="bg-white p-12 rounded-[3rem] border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group reveal" style="transition-delay: 0.1s;">
-                    <div class="w-20 h-20 bg-purple-50 text-purple-600 rounded-3xl flex items-center justify-center mb-10 group-hover:aethelio-gradient-bg group-hover:text-white transition-all duration-500">
-                        <i data-lucide="building" class="w-10 h-10"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4 text-slate-900">Бизнес-инфраструктура</h3>
-                    <p class="text-slate-500 mb-8 leading-relaxed">Регистрация холдингов в белых юрисдикциях, налоговое планирование и корпоративный сабстанс.</p>
-                    <div class="flex items-center gap-2 text-purple-600 font-bold text-sm uppercase tracking-widest">
-                        Регистрация <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                    </div>
-                </div>
-
-                <!-- Карта 3 -->
-                <div class="bg-white p-12 rounded-[3rem] border border-slate-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group reveal" style="transition-delay: 0.2s;">
-                    <div class="w-20 h-20 bg-blue-50 text-blue-600 rounded-3xl flex items-center justify-center mb-10 group-hover:aethelio-gradient-bg group-hover:text-white transition-all duration-500">
-                        <i data-lucide="landmark" class="w-10 h-10"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4 text-slate-900">Управление капиталом</h3>
-                    <p class="text-slate-500 mb-8 leading-relaxed">Открытие счетов в Tier-1 банках, подбор элитной недвижимости и защита ваших семейных активов.</p>
-                    <div class="flex items-center gap-2 text-blue-600 font-bold text-sm uppercase tracking-widest">
-                        Активы <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                <div class="bg-white p-10 rounded-[3.5rem] shadow-2xl reveal" style="transition-delay: 0.2s;">
+                    <div class="space-y-8">
+                        <div class="p-6 bg-indigo-50 rounded-3xl border border-indigo-100">
+                            <i data-lucide="search" class="text-indigo-600 mb-4 w-10 h-10"></i>
+                            <h4 class="text-xl font-bold mb-2">Для клиентов</h4>
+                            <p class="text-sm text-slate-500">Бесплатный подбор лучшего решения без комиссии за услуги платформы. Мы получаем оплату от провайдеров.</p>
+                        </div>
+                        <div class="p-6 bg-slate-900 rounded-3xl text-white">
+                            <i data-lucide="users" class="text-indigo-400 mb-4 w-10 h-10"></i>
+                            <h4 class="text-xl font-bold mb-2">Для провайдеров</h4>
+                            <p class="text-sm text-slate-400">Доступ к проверенным (verified) лидам с высоким чеком. Подписка на платформу — ваш знак качества.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ФОРМА (LEAD CAPTURE) -->
-    <section id="lead-form" class="py-32 bg-white relative overflow-hidden">
+    <!-- ПАРТНЕРАМ (B2B SECTION) -->
+    <section id="partners" class="py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-slate-50 rounded-[4rem] p-12 md:p-24 text-center reveal">
+                <i data-lucide="briefcase" class="w-16 h-16 mx-auto mb-8 text-indigo-600"></i>
+                <h2 class="text-4xl md:text-6xl font-black mb-8 tracking-tighter">Вы профессиональный исполнитель?</h2>
+                <p class="text-xl text-slate-500 max-w-2xl mx-auto mb-12 font-medium leading-relaxed">
+                    Aethelio — основной источник качественных заявок в нише High-Net-Worth. Мы продаем не контакты, а готовые к сделке кейсы. Получите доступ к нашей базе через годовую подписку.
+                </p>
+                <div class="grid md:grid-cols-2 gap-8 text-left max-w-4xl mx-auto">
+                    <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200">
+                        <h4 class="font-black text-2xl mb-4">Silver Access</h4>
+                        <p class="text-slate-500 text-sm mb-6">Доступ к общей ленте лидов в реальном времени. Интеграция с вашей CRM.</p>
+                        <span class="text-indigo-600 font-bold">$2,500 / год</span>
+                    </div>
+                    <div class="bg-white p-8 rounded-3xl shadow-xl border-2 border-indigo-500 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-indigo-500 text-white text-[10px] font-bold px-4 py-1 rounded-bl-xl uppercase">Premium</div>
+                        <h4 class="font-black text-2xl mb-4">Gold Priority</h4>
+                        <p class="text-slate-500 text-sm mb-6">Эксклюзивное право первого выкупа лидов. Ваша карточка в топе подбора.</p>
+                        <span class="text-indigo-600 font-bold">$7,000 / год</span>
+                    </div>
+                </div>
+                <div class="mt-12">
+                    <a href="#lead-form" class="inline-block px-10 py-5 bg-slate-900 text-white rounded-2xl font-black hover:bg-slate-800 transition-all">Подать заявку на партнерство</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ФОРМА (LEAD GEN) -->
+    <section id="lead-form" class="py-32 bg-white relative">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="aethelio-gradient-bg rounded-[4rem] p-10 md:p-20 relative overflow-hidden shadow-[0_50px_100px_rgba(79,70,229,0.2)] reveal">
-                <!-- Декор внутри формы -->
-                <div class="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
-                
+            <div class="aethelio-gradient rounded-[4rem] p-10 md:p-20 relative overflow-hidden shadow-2xl reveal">
                 <div class="relative z-10 grid lg:grid-cols-2 gap-16 items-center">
-                    <div class="text-white space-y-8">
-                        <h2 class="text-4xl md:text-5xl font-black leading-tight">Ваш новый статус <br> ждет решения</h2>
-                        <p class="text-indigo-100 text-lg font-light leading-relaxed">Оставьте запрос на персональный аудит. Наши юристы свяжутся с вами в Telegram для первичного разбора кейса.</p>
+                    <div class="text-white">
+                        <h2 class="text-4xl md:text-5xl font-black mb-6 leading-tight tracking-tighter">Начните свой <br> путь к свободе</h2>
+                        <p class="text-indigo-100 text-lg font-light mb-8">Пройдите короткий опрос, и наша система мгновенно подберет 3 компании, максимально подходящие под ваш бюджет и цели.</p>
                         
-                        <div class="grid grid-cols-2 gap-6 pt-4">
-                            <div class="space-y-2">
-                                <p class="text-3xl font-bold">100%</p>
-                                <p class="text-xs text-indigo-200 uppercase font-bold tracking-widest">Анонимность</p>
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="shield-check" class="text-indigo-300"></i>
+                                <span class="text-sm font-bold">100% защита данных GDPR</span>
                             </div>
-                            <div class="space-y-2">
-                                <p class="text-3xl font-bold">24h</p>
-                                <p class="text-xs text-indigo-200 uppercase font-bold tracking-widest">Скорость ответа</p>
+                            <div class="flex items-center gap-3">
+                                <i data-lucide="clock" class="text-indigo-300"></i>
+                                <span class="text-sm font-bold">Подбор за 15 минут</span>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-2xl">
+                    <div class="bg-white p-10 rounded-[2.5rem] shadow-3xl">
                         <form action="https://formspree.io/f/mlgovvbd" method="POST" class="space-y-6">
-                            <div>
-                                <label class="block text-[10px] font-black uppercase text-slate-400 mb-2 tracking-widest">ФИО / Псевдоним</label>
-                                <input type="text" name="name" required class="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-indigo-500 outline-none text-slate-900 transition-all" placeholder="Александр">
+                            <div class="grid grid-cols-2 gap-4">
+                                <button type="button" class="py-3 px-2 border-2 border-slate-100 rounded-xl text-xs font-bold hover:border-indigo-500 focus:bg-indigo-50 transition-all">ВНЖ / ПМЖ</button>
+                                <button type="button" class="py-3 px-2 border-2 border-slate-100 rounded-xl text-xs font-bold hover:border-indigo-500 focus:bg-indigo-50 transition-all">Бизнес / Банк</button>
                             </div>
                             <div>
-                                <label class="block text-[10px] font-black uppercase text-slate-400 mb-2 tracking-widest">Контакт для связи</label>
-                                <input type="text" name="contact" required class="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl focus:ring-2 focus:ring-indigo-500 outline-none text-slate-900 transition-all" placeholder="@telegram / +7...">
+                                <label class="block text-[10px] font-black uppercase text-slate-400 mb-2 tracking-widest">Контактное лицо</label>
+                                <input type="text" name="name" required class="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl outline-none" placeholder="Имя">
                             </div>
-                            <button type="submit" class="w-full py-5 aethelio-gradient-bg text-white rounded-2xl font-black text-lg hover:shadow-2xl transition-all transform hover:-translate-y-1 active:scale-95 shadow-xl shadow-indigo-200">
-                                Начать работу
+                            <div>
+                                <label class="block text-[10px] font-black uppercase text-slate-400 mb-2 tracking-widest">Telegram или WhatsApp</label>
+                                <input type="text" name="contact" required class="w-full px-6 py-4 bg-slate-50 border border-slate-100 rounded-2xl outline-none" placeholder="@username">
+                            </div>
+                            <button type="submit" class="w-full py-5 aethelio-gradient text-white rounded-2xl font-black text-lg hover:shadow-2xl transition-all transform hover:-translate-y-1">
+                                Найти лучших провайдеров
                             </button>
-                            <p class="text-[9px] text-slate-400 text-center uppercase tracking-tighter">Все данные защищены международным протоколом конфиденциальности Aethelio.</p>
                         </form>
                     </div>
                 </div>
@@ -259,71 +206,34 @@
     <footer class="bg-slate-50 py-20 border-t border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div class="flex justify-center items-center gap-3 mb-10">
-                <div class="w-8 h-8 aethelio-gradient-bg rounded-lg flex items-center justify-center text-white">
-                    <i data-lucide="compass" class="w-4 h-4"></i>
-                </div>
+                <div class="w-8 h-8 aethelio-gradient rounded-lg flex items-center justify-center text-white"><i data-lucide="hub" class="w-4 h-4"></i></div>
                 <span class="text-xl font-black text-slate-900 tracking-tighter uppercase">Aethelio</span>
             </div>
-            
-            <div class="flex flex-wrap justify-center gap-x-12 gap-y-6 text-slate-400 text-xs font-bold uppercase tracking-widest mb-12">
-                <a href="#services" class="hover:text-indigo-600 transition-colors">Услуги</a>
-                <a href="#process" class="hover:text-indigo-600 transition-colors">Методология</a>
-                <a href="#" class="hover:text-indigo-600 transition-colors">База знаний</a>
-                <a href="mailto:contact@aethelio.com" class="hover:text-indigo-600 transition-colors">Email</a>
-            </div>
-            
-            <div class="h-px w-20 bg-slate-200 mx-auto mb-10"></div>
-            
-            <p class="text-slate-400 text-[10px] uppercase tracking-[0.2em]">© 2026 Aethelio Global Group. Совершенство в деталях.</p>
+            <p class="text-slate-400 text-[10px] uppercase tracking-[0.2em]">© 2026 Aethelio Lead-Gen Platform. Независимый консалтинг и агрегация.</p>
         </div>
     </footer>
 
-    <!-- СКРИПТЫ -->
     <script>
-        // Инициализация иконок
         lucide.createIcons();
-
-        // Логика мобильного меню
         const menuBtn = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
         const menuIcon = document.getElementById('menu-icon');
 
         menuBtn.addEventListener('click', () => {
             const isHidden = mobileMenu.classList.toggle('hidden');
-            // Анимация смены иконки
             menuIcon.setAttribute('data-lucide', isHidden ? 'menu' : 'x');
             lucide.createIcons();
         });
 
-        // Плавное скрытие навигации при скролле
-        let lastScroll = 0;
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            if (currentScroll > 100) {
-                navbar.classList.add('shadow-xl', 'py-2');
-                navbar.classList.remove('py-4');
-            } else {
-                navbar.classList.remove('shadow-xl', 'py-2');
-                navbar.classList.add('py-4');
-            }
-            lastScroll = currentScroll;
-        });
-
-        // Функция появления элементов (Scroll Reveal)
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
             for (var i = 0; i < reveals.length; i++) {
                 var windowHeight = window.innerHeight;
                 var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 100;
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
-                }
+                if (elementTop < windowHeight - 100) { reveals[i].classList.add("active"); }
             }
         }
         window.addEventListener("scroll", reveal);
-        // Запускаем сразу при загрузке
         window.onload = reveal;
     </script>
 </body>
